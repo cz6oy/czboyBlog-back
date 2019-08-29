@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /czboy
+spring:
+  datasource:
+    url: jdbc:mysql://localhost3306/czboy
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 200MB
+mybatis:
+  type-aliases-package: cn.czboy.entity
+  mapper-locations: classpath:cn/czboy/mapper/*Mapper.xml
