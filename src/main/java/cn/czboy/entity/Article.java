@@ -20,7 +20,7 @@ public class Article {
     private String cover;
 
     /**文章描述*/
-    private String describe;
+    private String description;
 
     /**文章内容*/
     private String content;
@@ -40,4 +40,6 @@ public class Article {
     /**文章所属类别*/
     private String classId;
 
+    /**文章标签*/
+    private String label;
 }

@@ -3,10 +3,13 @@
 <mapper namespace="cn.czboy.mapper.ArticleDao">
 
     <resultMap id="a1" type="Article">
-
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="cover" property="cover"/>
+        <result column="description" property="description"/>
     </resultMap>
     
     <select id="queryArticle" resultMap="a1">
-      select * from  t_article order by hot_value;
+      SELECT a.id,a.title,a.cover,a.description FROM t_article a ORDER BY hot_value DESC limit 0,6;
    </select>
 </mapper>
