@@ -10,6 +10,6 @@
     </resultMap>
     
     <select id="queryArticle" resultMap="a1">
-      SELECT a.id,a.title,a.cover,a.description FROM t_article a ORDER BY hot_value DESC limit 0,6;
+      select A.ID,A.TITLE,A.COVER,A.DESCRIPTION from T_ARTICLE a order by HOT_VALUE desc limit 0,6;
    </select>
 </mapper>
