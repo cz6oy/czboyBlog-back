@@ -14,11 +14,33 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleDao articleDao;
 
     @Override
-    public List<Article> queryArticle() {
+    public List<Article> listArticle() {
         List<Article> articles = null;
-        try{
-            articles = articleDao.queryArticle();
-        }catch(Exception e){
+        try {
+            articles = articleDao.listArticle();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return articles;
+    }
+
+    @Override
+    public Article getArticleDetails(String articleId) {
+        Article article = null;
+        try {
+            article = articleDao.getArticleDetails(articleId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return article;
+    }
+
+    @Override
+    public List<Article> listTypeArticle(String articleType) {
+        List<Article> articles = null;
+        try {
+            articles =  articleDao.listTypeArticle(articleType);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return articles;

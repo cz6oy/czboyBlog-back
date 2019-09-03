@@ -8,8 +8,34 @@
         <result column="cover" property="cover"/>
         <result column="description" property="description"/>
     </resultMap>
-    
-    <select id="queryArticle" resultMap="a1">
-      select A.ID,A.TITLE,A.COVER,A.DESCRIPTION from T_ARTICLE a order by HOT_VALUE desc limit 0,6;
+
+    <select id="listArticle" resultMap="a1">
+      select ID,
+      TITLE,
+      COVER,
+      DESCRIPTION
+      from T_ARTICLE
+      order by HOT_VALUE desc limit 0,6;
    </select>
+
+    <select id="getArticleDetails" parameterType="String" resultType="Article">
+        select ID,
+        TITLE,
+        CONTENT,
+        CREATE_TIME as CREATETIME,
+        STAR,
+        LABEL,
+        HOT_VALUE as HOTVALUE
+        from T_ARTICLE where ID = #{id} and VISIBLE = 'YES'
+    </select>
+
+    <select id="listTypeArticle" parameterType="String" resultMap="a1">
+      select ID,
+      TITLE,
+      COVER,
+      DESCRIPTION
+      from T_ARTICLE
+      where CLASS_ID = #{classId}
+      order by HOT_VALUE desc limit 0,6;
+    </select>
 </mapper>
