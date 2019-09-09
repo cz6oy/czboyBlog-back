@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Article {
 
     /**主键ID*/
@@ -46,4 +44,109 @@ public class Article {
 
     /**文章标签*/
     private String label;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public int getHotValue() {
+        return hotValue;
+    }
+
+    public void setHotValue(int hotValue) {
+        this.hotValue = hotValue;
+    }
+
+    public String getVisible() {
+        return visible;
+    }
+
+    public void setVisible(String visible) {
+        this.visible = visible;
+    }
+
+    public int getStar() {
+        return star;
+    }
+
+    public void setStar(int star) {
+        this.star = star;
+    }
+
+    public String getClassId() {
+        return classId;
+    }
+
+    public void setClassId(String classId) {
+        this.classId = classId;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", cover='" + cover + '\'' +
+                ", description='" + description + '\'' +
+                ", content='" + content + '\'' +
+                ", createTime=" + createTime +
+                ", hotValue=" + hotValue +
+                ", visible='" + visible + '\'' +
+                ", star=" + star +
+                ", classId='" + classId + '\'' +
+                ", label='" + label + '\'' +
+                '}';
+    }
 }

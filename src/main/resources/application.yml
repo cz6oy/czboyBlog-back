@@ -2,6 +2,9 @@ server:
   port: 8989
   servlet:
     context-path: /czboy
+  jsp:
+    init-parameters:
+      development: true
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/czboy
@@ -17,6 +20,10 @@ spring:
     multipart:
       max-file-size: 20MB
       max-request-size: 200MB
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /
 mybatis:
   type-aliases-package: cn.czboy.entity
   mapper-locations: classpath:cn/czboy/mapper/*Mapper.xml

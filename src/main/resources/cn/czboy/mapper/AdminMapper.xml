@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.czboy.mapper.AdminDao">
+
+   <select id="findByUserName" parameterType="String" resultType="Admin">
+      select PASSWORD,USERNAME from T_ADMIN where USERNAME = #{username}
+   </select>
+
+    <select id="findMenu" resultType="Menu">
+        select ID,MENU_NAME MENUNAME,URL,MENU_STY MENUSTY from t_menu;
+    </select>
+</mapper>

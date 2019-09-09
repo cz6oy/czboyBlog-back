@@ -8,5 +8,5 @@
     <root level="info">
         <appender-ref ref="stdout"/>
     </root>
-    <logger name="cn.czboy.mapper" level="DEBUG"/>
+    <logger name="com.baizhi.mapper" level="DEBUG"/>
 </configuration>
