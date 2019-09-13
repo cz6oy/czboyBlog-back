@@ -2,11 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.czboy.mapper.AdminDao">
 
+
+    <resultMap id="a1" type="ArticleSysDto">
+        <id column="id" property="id"/>
+        <result column="classname" property="classname"/>
+        <result column="title" property="title"/>
+        <result column="createtime" property="createtime"/>
+        <result column="hotvalue" property="hotvalue"/>
+        <result column="visible" property="visible"/>
+    </resultMap>
+
    <select id="findByUserName" parameterType="String" resultType="Admin">
       select PASSWORD,USERNAME from T_ADMIN where USERNAME = #{username}
    </select>
 
     <select id="findMenu" resultType="Menu">
         select ID,MENU_NAME MENUNAME,URL,MENU_STY MENUSTY from t_menu;
+    </select>
+
+    <select id="findArticleSys" resultMap="a1" parameterType="String">
+        select t2.ID ID,t1.CLASS_NAME CLASSNAME,t2.TITLE TITLE,t2.CREATE_TIME CREATETIME,
+        t2.HOT_VALUE HOTVALUE,t2.VISIBLE VISIBLE from T_CLASS t1 left join T_ARTICLE t2 on t1.ID = t2.CLASS_ID
+        <where>
+            <if test="type == 'java'">
+                t1.id = '1'
+            </if>
+            <if test="type == 'web'">
+                t1.id = '2'
+            </if>
+            <if test="type == 'python'">
+                t1.id = '3'
+            </if>
+            <if test="type == 'bigdata'">
+                t1.id = '4'
+            </if>
+        </where>
     </select>
 </mapper>

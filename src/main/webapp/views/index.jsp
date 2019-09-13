@@ -16,12 +16,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+
+    <script src="${pageContext.request.contextPath}/editor.md-master/editormd.js"></script>
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/editor.md-master/css/editormd.css" />
+
     <style>
         .layout {
             width: 100%;
             height: 100vh;
         }
-
+        .test-editormd{
+            dispaly:none;
+        }
     </style>
 </head>
 <body>

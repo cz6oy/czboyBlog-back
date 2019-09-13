@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface ArticleService {
+
     /**获取热度高的前6篇文章*/
     List<Article> listArticle();
 

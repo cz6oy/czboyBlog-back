@@ -1,7 +1,7 @@
 package cn.czboy.service;
 
-import cn.czboy.entity.Admin;
 import cn.czboy.entity.Menu;
+import cn.czboy.entity.dto.ArticleSysDto;
 
 import java.util.List;
 
@@ -12,4 +12,8 @@ public interface AdminService {
 
     /** 查询菜单*/
     List<Menu> findMenu();
+
+    /** 根据类别查询后台文章*/
+    List<ArticleSysDto> findArticleSys(String type);
+
 }
