@@ -6,12 +6,16 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface ArticleDao {
-    /**初始化热点前6的文章*/
+
+    /** 初始化热点前6的文章*/
     List<Article> listArticle();
 
-    /**获取文章详情*/
+    /** 获取文章详情*/
     Article getArticleDetails(@Param("id") String articleId);
 
-    /**获取指定类别的文章*/
+    /** 获取指定类别的文章*/
     List<Article> listTypeArticle(@Param("classId") String articleType);
+
+    /** 添加文章*/
+    void addArticle(Article article);
 }

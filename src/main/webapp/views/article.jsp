@@ -26,11 +26,12 @@
             path: "${pageContext.request.contextPath}/editor.md-master/lib/"
         });
 
+        var type;
         $.ajax({
             type: 'POST',
             url: '${pageContext.request.contextPath}/sys/article',
             data: {
-                type: 'java'
+                type: type
             },
             success: function (res) {
                 console.log(res);
@@ -45,7 +46,7 @@
                         "<button type=\"button\" class=\"btn btn-success\" onclick='details(" + res[i].id + ")'>详情</button>" +
                         "&nbsp;&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-danger\" onclick='del(" + res[i].id + ")'>删除</button>" +
                         "<td/>";
-                    $("#tbody ").html("<tr>" + th1 + th2 + th3 + th4 + th5 + th6 + th7 + "</tr>");
+                    $("#tbody ").append("<tr>" + th1 + th2 + th3 + th4 + th5 + th6 + th7 + "</tr>");
                 }
             },
             error: function (err) {
@@ -56,7 +57,11 @@
 
     })
 
-    function addArticle() {
+    function addArticle(type){
+        $.ajax({
+            type:'POST',
+            url:'${pageContext.request.contextPath}/sys/addArticle'
+        })
         console.log(testEditor.getHTML()); // 获取 Textarea 保存的 HTML 源码
 
         console.log(testEditor.getMarkdown());       // 获取 Markdown 源码
@@ -148,12 +153,13 @@
     <%--markdown模态框--%>
     <div id="myModal2" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
          aria-labelledby="myLargeModalLabel">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="文章标题">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="文章标题"> &nbsp;&nbsp;
+        <input type="file" value="文章封面">
         <div id="test-editormd">
             <textarea name="blogContent" id="blogContent"></textarea>
         </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-default">草稿</button>
-        <button type="button" class="btn btn-primary" onclick="addArticle()">发布</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-default" onclick="addArticle(0)">草稿</button>
+        <button type="button" class="btn btn-primary" onclick="addArticle(1)">发布</button>
     </div>
 </div>
 </div>

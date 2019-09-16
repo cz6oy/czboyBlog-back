@@ -50,4 +50,9 @@ public class AdminServiceImpl implements AdminService {
         }
         return articleSys;
     }
+
+    @Override
+    public void addArticle(String title, String coverImg, String content, String type) {
+
+    }
 }

@@ -1,5 +1,6 @@
 package cn.czboy.controller;
 
+import cn.czboy.entity.Article;
 import cn.czboy.entity.Menu;
 import cn.czboy.entity.dto.ArticleSysDto;
 import cn.czboy.service.AdminService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -31,6 +33,7 @@ public class AdminController {
         return "redirect:/error.jsp";
     }
 
+    /** 跳转到主页*/
     @RequestMapping(value = "/index")
     public String queryMenu(Model model, String type) {
         List<Menu> menus = adminService.findMenu();
@@ -39,10 +42,17 @@ public class AdminController {
         return "forward:/views/index.jsp";
     }
 
+    /** 查询文章*/
     @RequestMapping(value = "/article",method = RequestMethod.POST)
-    public @ResponseBody List<ArticleSysDto> queryArticleSys(String type){
+    public @ResponseBody List<ArticleSysDto> queryArticleSys(String type) {
         List<ArticleSysDto> articleSys = adminService.findArticleSys(type);
         log.info("----------article---------------：{}",articleSys);
         return articleSys;
+    }
+
+    /** 添加文章*/
+    @RequestMapping(value = "/addArticle",method = RequestMethod.POST)
+    public void addArticle(String title, String cover, MultipartFile file,String content,String type) {
+        adminService.addArticle(title,cover,content,type);
     }
 }
