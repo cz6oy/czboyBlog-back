@@ -40,7 +40,7 @@
                         data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                 </button>
-                <a class="navbar-brand" href="#">czboy后台管理系统</a>
+                <a class="navbar-brand" href="#">后台管理系统</a>
             </div>
         </div>
     </nav>
