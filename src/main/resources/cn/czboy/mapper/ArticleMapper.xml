@@ -40,6 +40,6 @@
     </select>
 
     <insert id="addArticle" parameterType="Article">
-        insert into article () values()
+        insert into t_article (id,title,description,content,create_time,class_id) values(#{id},#{title},#{description},#{content},#{createTime},#{classId})
     </insert>
 </mapper>

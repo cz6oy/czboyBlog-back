@@ -60,22 +60,35 @@
     })
 
     function addArticle(type){
-        var title =
+        var title = $("#title").val();
+        var classId = $("#classId option:selected").val();
+        var dataTemp = {
+            title:title,
+            content:testEditor.getMarkdown(),
+            classId:classId
+        };
         $.ajax({
             type:'POST',
+            dataType:'json',
             url:'${pageContext.request.contextPath}/sys/addArticle',
-            data:{
-                // title:
+            data:dataTemp,
+            success:function(res){
+               $('#myModal2').modal('hide');
+                $("#title").val("");
+                $("#blogContent").val("");
+            },
+            error: function(err) {
+                console.log(err);
             }
         })
-        console.log(testEditor.getHTML()); // 获取 Textarea 保存的 HTML 源码
-
-        console.log(testEditor.getMarkdown());       // 获取 Markdown 源码
-        console.log(testEditor.getPreviewedHTML());  // 获取预览窗口里的 HTML，在开启
+        // console.log(testEditor.getHTML()); // 获取 Textarea 保存的 HTML 源码
+        //
+        // console.log(testEditor.getMarkdown());       // 获取 Markdown 源码
+        // console.log(testEditor.getPreviewedHTML());  // 获取预览窗口里的 HTML，在开启
     }
 
     function markdown() {
-        $('#myModal2').modal('show')
+        $('#myModal2').modal('show');
     }
 
     function del(id) {
@@ -159,8 +172,14 @@
     <%--markdown模态框--%>
     <div id="myModal2" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
          aria-labelledby="myLargeModalLabel">
+        <select id="classId">
+            <option>文章类别</option>
+            <option value="1">Java</option>
+            <option value="2">Web前端</option>
+            <option value="3">Python</option>
+            <option value="4">大数据</option>
+        </select>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="文章标题" id="title"> &nbsp;&nbsp;
-        <input type="file" value="文章封面" name="upload">
         <div id="test-editormd">
             <textarea name="blogContent" id="blogContent"></textarea>
         </div>

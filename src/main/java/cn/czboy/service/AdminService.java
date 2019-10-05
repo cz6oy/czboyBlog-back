@@ -17,5 +17,5 @@ public interface AdminService {
     List<ArticleSysDto> findArticleSys(String type);
 
     /** 添加文章*/
-    void addArticle(String title,String coverImg,String content,String type);
+    void addArticle(String title,String content,String classId,String describe);
 }

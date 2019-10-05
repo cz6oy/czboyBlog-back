@@ -26,9 +26,7 @@ public class Article {
     private String content;
 
     /**创建时间*/
-
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
-    private Date createTime;
+    private String createTime;
 
     /**热度*/
     private int hotValue;
@@ -85,11 +83,11 @@ public class Article {
         this.content = content;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
